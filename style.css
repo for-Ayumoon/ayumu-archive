@@ -3,13 +3,14 @@
    ========================================== */
 body {
   margin: 0;
-  padding: 20px 10px;
-  /* Windowsクラシックの標準フォント指定 */
+  padding: 0;
   font-family: "MS Sans Serif", "MS PGothic", "Osaka", sans-serif;
   font-size: 13px;
-  /* 背景色をラブリーなパステルピンクに */
-  background-color: #ffb6c1; 
-  color: #4a0e17; /* 全体の文字色は濃いめのベリーピンク */
+  /* 💡 指定の背景画像に差し替え */
+  background-image: url("shinogayaayumu_4.jpg"); 
+  background-size: cover;
+  background-position: center;
+  color: #4a0e17;
   line-height: 1.6;
 }
 
@@ -18,73 +19,64 @@ a {
   color: #ba55d3;
   text-decoration: underline;
 }
-a:hover {
-  color: #ff1493;
-}
 
 /* ==========================================
-   TOP (Hero セクション：ようこそ画面風)
+   TOPタイトル（デスクトップのロゴ風）
    ========================================== */
 .hero {
   text-align: center;
-  padding: 30px 10px 10px 10px;
+  padding: 20px 10px 0 10px;
   color: #ffffff;
-  text-shadow: 2px 2px #ff69b4; /* 文字の後ろに濃いピンクの影 */
+  text-shadow: 2px 2px #ff69b4;
 }
 
 .title {
   font-size: 24px;
   font-weight: bold;
-  margin: 0 0 8px 0;
-  letter-spacing: 1px;
+  margin: 0;
 }
 
 .subtitle {
   font-size: 11px;
-  margin: 0;
+  margin: 5px 0 0 0;
   color: #fff0f5;
 }
 
 /* ==========================================
-   ウィンドウ（おもちゃのパソコン風）
+   ウィンドウの基本デザイン
    ========================================== */
 .content {
-  max-width: 340px; /* 💡 ここがポイント！横幅をきゅっとコンパクトにして可愛く */
-  margin: 25px auto;
-  background-color: #ffe4e1; /* ウィンドウのベース（ミルキーピンク） */
-  
-  /* 💡 境界線を太くして、カクカクした立体感をハッキリ出しました */
+  width: 280px; /* 少し小さくして並べやすく */
+  background-color: #ffe4e1; 
   border-top: 3px solid #ffffff;
   border-left: 3px solid #ffffff;
   border-right: 3px solid #ffb6c1;
   border-bottom: 3px solid #ffb6c1;
   box-shadow: 2px 2px 0px 0px #ff69b4;
-  
   padding: 4px; 
   box-sizing: border-box;
 }
 
-/* ウィンドウの「タイトルバー」 */
+/* タイトルバー */
 h2 {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: bold;
-  background-color: #fffacd; /* パステルイエロー */
-  color: #ff1493; /* 文字はビビッドなピンク */
-  padding: 6px 8px;
-  margin: 0 0 4px 0; /* 下の白枠とのすきま */
+  background-color: #fffacd; 
+  color: #ff1493; 
+  padding: 4px 6px;
+  margin: 0 0 4px 0; 
   display: flex;
   justify-content: space-between;
   align-items: center;
   border: 1px solid #ffb6c1;
 }
 
-/* タイトルバーの右側につける「［×］ボタン」 */
 h2::after {
   content: "×";
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 13px;
+  width: 14px;
+  height: 14px;
+  line-height: 11px;
   text-align: center;
   background-color: #ffe4e1;
   color: #ff1493;
@@ -92,52 +84,71 @@ h2::after {
   border-left: 1px solid #ffffff;
   border-right: 2px solid #ffb6c1;
   border-bottom: 2px solid #ffb6c1;
-  cursor: pointer;
-  font-size: 11px;
+  font-size: 10px;
 }
 
-/* ウィンドウの中身（淡いクリームイエローのテキスト領域） */
+/* ウィンドウの中身 */
 .content-body {
-  background-color: #fffff0; /* ほんのり黄色みがかった白 */
-  /* 💡 内側の凹み立体感をハッキリ */
+  background-color: #fffff0; 
   border-top: 2px solid #ffb6c1;
   border-left: 2px solid #ffb6c1;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
-  padding: 15px 10px;
-  min-height: 50px;
-  color: #4a0e17; 
-  text-align: center; /* 💡 文字を中央寄せにして平成プロフ感をアップ */
-}
-
-.content-body p {
-  margin: 0;
+  padding: 12px 10px;
+  min-height: 40px;
+  text-align: center; 
 }
 
 /* ==========================================
-   チッケム（YouTube）用の微調整
+   💡 パソコン画面での配置（Pinterest再現）
    ========================================== */
-.fancam-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+@media screen and (min-width: 769px) {
+  body {
+    height: 100vh;
+    overflow: hidden; /* 1画面に収めてスクロールバーを消す */
+    position: relative;
+  }
+
+  /* 各ウィンドウをデスクトップ上にバラバラに配置 */
+  #win-profile {
+    position: absolute;
+    top: 25%;
+    left: 8%;
+    z-index: 3;
+  }
+
+  #win-fancam {
+    position: absolute;
+    top: 18%;
+    left: 55%;
+    z-index: 2;
+  }
+
+  #win-gallery {
+    position: absolute;
+    top: 55%;
+    left: 15%;
+    z-index: 1;
+  }
+
+  #win-link {
+    position: absolute;
+    top: 48%;
+    left: 45%;
+    z-index: 4; /* 重なりの一番上に */
+  }
+
+  #win-readme {
+    position: absolute;
+    top: 70%;
+    left: 68%;
+    z-index: 2;
+  }
 }
 
-.video-box {
-  background-color: #ffe4e1;
-  padding: 6px;
-  border: 1px solid #ffb6c1;
-}
-
-.video-box p {
-  margin: 0 0 6px 0;
-  font-weight: bold;
-  color: #ff1493;
-  font-size: 11px;
-}
-
-.video-box iframe {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 2px solid #ff69b4;
+/* 📱 スマホ画面での配置（崩れないように縦並び） */
+@media screen and (max-width: 768px) {
+  .content {
+    margin: 20px auto;
+  }
 }
