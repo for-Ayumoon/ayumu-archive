@@ -1,129 +1,126 @@
-/* 全体 */
-
-body{
-  margin:0;
-  font-family:sans-serif;
-  background:#0d1326;
-  color:white;
+/* ==========================================
+   全体の設定
+   ========================================== */
+body {
+  margin: 0;
+  /* 日本語は洗練された明朝体、英数字は上品なセリフ体に */
+  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
+  background: #0d1326;
+  color: white;
+  line-height: 1.8; /* 行間を少し広げて読みやすく */
 }
 
+/* ==========================================
+   TOP (Hero セクション)
+   ========================================== */
+.hero {
+  height: 100dvh; /* vh から dvh に変更（スマホの上下バー対策） */
 
-/* TOP */
+  background-image: url("top.jpeg");
+  background-size: cover;
+  background-position: center;
 
-.hero{
-  height:100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  background-image:url("top.jpeg");
-  background-size:cover;
-  background-position:center;
-
-  background-attachment:fixed;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  text-align:center;
+  text-align: center;
 }
-
 
 /* 暗めフィルター */
-
-.overlay{
-  background:rgba(0,0,0,0.2);
-  padding:20px;
-  border-radius:20px;
+.overlay {
+  background: rgba(0, 0, 0, 0.4); /* 40%に少し暗くして文字を読みやすく */
+  padding: 30px 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px); /* 背景をほんのりぼかすおしゃれエフェクト */
 }
-
 
 /* タイトル */
+.title {
+  font-size: 48px;
+  font-weight: 300;
+  letter-spacing: 4px;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); /* 文字を優しく光らせる */
 
-.title{
-  font-size:48px;
-  font-weight:300;
-  letter-spacing:4px;
-
-  animation:float 6s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
 }
-
 
 /* サブタイトル */
+.subtitle {
+  margin-top: 20px;
+  font-size: 14px;
+  opacity: 0.8;
 
-.subtitle{
-  margin-top:20px;
-  font-size:14px;
-  opacity:0.8;
-
-  animation:fade 3s ease;
+  animation: fade 3s ease;
 }
 
-
-/* セクション */
-
-.content{
-  padding:100px 24px;
-  max-width:700px;
-  margin:auto;
+/* ==========================================
+   コンテンツセクション
+   ========================================== */
+.content {
+  padding: 100px 24px;
+  max-width: 700px;
+  margin: auto;
 }
-
 
 /* 見出し */
-
-h2{
-  font-size:28px;
-  font-weight:300;
-  margin-bottom:40px;
-
-  letter-spacing:2px;
+h2 {
+  font-size: 28px;
+  font-weight: 300;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
 }
 
-
-/* アニメーション */
-
-@keyframes float{
-
-  0%{
-    transform:translateY(0px);
+/* ==========================================
+   アニメーションの設定
+   ========================================== */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
   }
-
-  50%{
-    transform:translateY(-10px);
+  50% {
+    transform: translateY(-10px);
   }
-
-  100%{
-    transform:translateY(0px);
+  100% {
+    transform: translateY(0px);
   }
-
 }
 
-
-@keyframes fade{
-
-  from{
-    opacity:0;
+@keyframes fade {
+  from {
+    opacity: 0;
   }
-
-  to{
-    opacity:0.8;
+  to {
+    opacity: 0.8;
   }
-
 }
 
+/* ==========================================
+   画面サイズに応じた表示の切り替え (レスポンシブ)
+   ========================================== */
 
-/* スマホ */
+/* 💻 パソコン・タブレット（大画面：横幅769px以上）の設定 */
+@media screen and (min-width: 769px) {
+  .hero {
+    background-attachment: fixed; /* パソコンでは背景を固定（パララックス） */
+  }
+}
 
-@media screen and (max-width:768px){
-
-  .title{
-    font-size:32px;
+/* 📱 スマホ（小画面：横幅768px以下）の設定 */
+@media screen and (max-width: 768px) {
+  .hero {
+    background-attachment: scroll; /* スマホでは背景の固定を解除してバグを防ぐ */
   }
 
-  .subtitle{
-    font-size:12px;
+  .title {
+    font-size: 32px;
   }
 
-  .content{
-    padding:80px 20px;
+  .subtitle {
+    font-size: 12px;
   }
 
+  .content {
+    padding: 80px 20px;
+  }
 }
