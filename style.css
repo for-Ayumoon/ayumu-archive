@@ -6,7 +6,7 @@ body {
   padding: 0;
   font-family: "MS Sans Serif", "MS PGothic", "Osaka", sans-serif;
   font-size: 13px;
-  /* 💡 指定の背景画像に差し替え */
+  /* 💡 アップロードされた画像背景に差し替え */
   background-image: url("shinogayaayumu_4.jpg"); 
   background-size: cover;
   background-position: center;
@@ -148,6 +148,9 @@ h2::after {
 
 /* 📱 スマホ画面での配置（崩れないように縦並び） */
 @media screen and (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
   .content {
     margin: 20px auto;
   }
