@@ -3,22 +3,22 @@
    ========================================== */
 body {
   margin: 0;
-  padding: 20px;
+  padding: 20px 10px;
   /* Windowsクラシックの標準フォント指定 */
   font-family: "MS Sans Serif", "MS PGothic", "Osaka", sans-serif;
-  font-size: 12px;
-  /* 💡 背景色をラブリーなパステルピンクに */
+  font-size: 13px;
+  /* 背景色をラブリーなパステルピンクに */
   background-color: #ffb6c1; 
   color: #4a0e17; /* 全体の文字色は濃いめのベリーピンク */
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
-/* 💡 リンク（レトロな青ではなく、世界観に合わせたパープル系に） */
+/* リンク */
 a {
   color: #ba55d3;
   text-decoration: underline;
 }
-a:visited {
+a:hover {
   color: #ff1493;
 }
 
@@ -27,21 +27,20 @@ a:visited {
    ========================================== */
 .hero {
   text-align: center;
-  padding: 20px;
+  padding: 30px 10px 10px 10px;
   color: #ffffff;
   text-shadow: 2px 2px #ff69b4; /* 文字の後ろに濃いピンクの影 */
-  margin-bottom: 30px;
 }
 
 .title {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: bold;
-  margin: 0 0 10px 0;
-  letter-spacing: 2px;
+  margin: 0 0 8px 0;
+  letter-spacing: 1px;
 }
 
 .subtitle {
-  font-size: 12px;
+  font-size: 11px;
   margin: 0;
   color: #fff0f5;
 }
@@ -50,29 +49,29 @@ a:visited {
    ウィンドウ（おもちゃのパソコン風）
    ========================================== */
 .content {
-  max-width: 600px;
-  margin: 0 auto 25px auto;
-  /* 💡 ウィンドウのベースをミルキーピンクに */
-  background-color: #ffe4e1; 
+  max-width: 340px; /* 💡 ここがポイント！横幅をきゅっとコンパクトにして可愛く */
+  margin: 25px auto;
+  background-color: #ffe4e1; /* ウィンドウのベース（ミルキーピンク） */
   
-  /* 立体的に見える外枠の影（色はかわいく調整） */
-  border-top: 2px solid #ffffff;
-  border-left: 2px solid #ffffff;
-  border-right: 2px solid #ffa07a;
-  border-bottom: 2px solid #ffa07a;
-  box-shadow: 1px 1px 0px 0px #ff69b4;
+  /* 💡 境界線を太くして、カクカクした立体感をハッキリ出しました */
+  border-top: 3px solid #ffffff;
+  border-left: 3px solid #ffffff;
+  border-right: 3px solid #ffb6c1;
+  border-bottom: 3px solid #ffb6c1;
+  box-shadow: 2px 2px 0px 0px #ff69b4;
+  
   padding: 4px; 
   box-sizing: border-box;
 }
 
-/* 💡 ウィンドウの「タイトルバー」をパステルイエローに */
+/* ウィンドウの「タイトルバー」 */
 h2 {
   font-size: 12px;
   font-weight: bold;
   background-color: #fffacd; /* パステルイエロー */
   color: #ff1493; /* 文字はビビッドなピンク */
-  padding: 5px 8px;
-  margin: 0 0 10px 0;
+  padding: 6px 8px;
+  margin: 0 0 4px 0; /* 下の白枠とのすきま */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -83,30 +82,36 @@ h2 {
 h2::after {
   content: "×";
   display: inline-block;
-  width: 14px;
-  height: 14px;
-  line-height: 12px;
+  width: 16px;
+  height: 16px;
+  line-height: 13px;
   text-align: center;
   background-color: #ffe4e1;
   color: #ff1493;
   border-top: 1px solid #ffffff;
   border-left: 1px solid #ffffff;
-  border-right: 1px solid #ffa07a;
-  border-bottom: 1px solid #ffa07a;
+  border-right: 2px solid #ffb6c1;
+  border-bottom: 2px solid #ffb6c1;
   cursor: pointer;
-  font-size: 10px;
+  font-size: 11px;
 }
 
 /* ウィンドウの中身（淡いクリームイエローのテキスト領域） */
 .content-body {
-  background-color: #fffff0; /* 💡 ほんのり黄色みがかった白 */
-  border-top: 2px solid #ffa07a;
-  border-left: 2px solid #ffa07a;
+  background-color: #fffff0; /* ほんのり黄色みがかった白 */
+  /* 💡 内側の凹み立体感をハッキリ */
+  border-top: 2px solid #ffb6c1;
+  border-left: 2px solid #ffb6c1;
   border-right: 2px solid #ffffff;
   border-bottom: 2px solid #ffffff;
-  padding: 15px;
+  padding: 15px 10px;
   min-height: 50px;
-  color: #333333; /* 本文は読みやすさ重視 */
+  color: #4a0e17; 
+  text-align: center; /* 💡 文字を中央寄せにして平成プロフ感をアップ */
+}
+
+.content-body p {
+  margin: 0;
 }
 
 /* ==========================================
@@ -115,23 +120,24 @@ h2::after {
 .fancam-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
 }
 
 .video-box {
   background-color: #ffe4e1;
-  padding: 8px;
-  border: 1px solid #ffa07a;
+  padding: 6px;
+  border: 1px solid #ffb6c1;
 }
 
 .video-box p {
   margin: 0 0 6px 0;
   font-weight: bold;
   color: #ff1493;
+  font-size: 11px;
 }
 
 .video-box iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
-  border: 2px solid #ff69b4; /* 動画の枠もピンク */
+  border: 2px solid #ff69b4;
 }
