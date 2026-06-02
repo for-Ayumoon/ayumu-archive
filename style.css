@@ -1,121 +1,85 @@
 /* ==========================================
-   全体の設定（背景画像をページ全体に適用）
+   全体の設定（平成ガラケー風）
    ========================================== */
 body {
   margin: 0;
-  /* 日本語は洗練された明朝体、英数字は上品なセリフ体に */
-  font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
-  color: white;
-  line-height: 1.8; /* 行間を少し広げて読みやすく */
+  padding: 20px 10px;
+  /* 💡 当時を再現するカクカクの12pxゴシック体 */
+  font-family: "MS PGothic", "Osaka", sans-serif;
+  font-size: 12px;
+  background-color: #000000; /* 前略プロフ王道の黒背景 */
+  color: #ffffff; /* 基本の文字は白 */
+  line-height: 1.5;
+}
 
-  /* 背景画像をbody（全体）に設定 */
-  background-image: url("top.jpeg");
-  background-size: cover;
-  background-position: center top; /* 画像の上部を基準に合わせる */
+/* 💡 リンクの設定（マウスを乗せるとチカチカ変わる） */
+a {
+  color: #00ffff; /* 水色（ネオンカラー） */
+  text-decoration: none; /* 下線は消す */
+}
+a:hover {
+  color: #ff00ff; /* マウスを乗せるとピンクに */
+  background-color: #333333; /* 背景がグレーになってガラケーの選択風に */
+  text-decoration: underline;
 }
 
 /* ==========================================
    TOP (Hero セクション)
    ========================================== */
 .hero {
-  height: 100dvh; /* スマホの上下バー対策 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  padding: 40px 10px;
+  border-bottom: 1px dashed #ff00ff; /* ピンクの点線で区切る */
+  margin-bottom: 20px;
 }
 
-/* 💡 TOPの四角い背景（overlay）を無くしました */
-.overlay {
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  backdrop-filter: none;
-}
-
-/* タイトル（名前） */
+/* 💡 タイトルを平成の特殊文字風に */
 .title {
-  font-size: 48px;
-  font-weight: 300;
-  letter-spacing: 4px;
-  /* 四角がなくなった分、文字が背景に埋もれないよう影を少し強めにしています */
-  text-shadow: 0 0 15px rgba(0, 0, 0, 0.6), 0 0 5px rgba(0, 0, 0, 0.8); 
-
-  /* 💡 アニメーション（float）を削除して動きを止めました */
+  font-size: 18px; /* 当時はそんなにデカくない */
+  font-weight: bold;
+  color: #ff00ff; /* 蛍光ピンク */
+  letter-spacing: 1px;
 }
 
 /* サブタイトル */
 .subtitle {
-  margin-top: 20px;
-  font-size: 14px;
-  opacity: 0.8;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-
-  animation: fade 3s ease;
+  margin-top: 10px;
+  font-size: 11px;
+  color: #00ffff; /* 蛍光水色 */
 }
 
 /* ==========================================
    コンテンツセクション (PROFILE, FANCAMなど)
    ========================================== */
 .content {
-  padding: 100px 24px;
-  max-width: 700px;
-  margin: auto;
-
-  /* 背景の夜空に対して文字が沈まないよう、文章エリアには薄い背景を敷いています */
-  background: rgba(13, 19, 38, 0.6); 
-  margin-top: 40px;   
-  margin-bottom: 40px;
-  border-radius: 16px; 
-  box-sizing: border-box;
+  max-width: 500px;
+  margin: 0 auto 30px auto;
+  padding: 15px;
+  background-color: #111111; /* うっすら明るい黒のボックス */
+  border: 1px solid #333333; /* 枠線 */
 }
 
-/* 見出し */
+/* 見出し（前略の質問項目風） */
 h2 {
-  font-size: 28px;
-  font-weight: 300;
-  margin-bottom: 40px;
-  letter-spacing: 2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* 見出しの下に薄い線を引く */
-  padding-bottom: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #ff00ff; /* ピンクの背景に白文字の見出し */
+  color: #ffffff;
+  padding: 5px 10px;
+  margin: -15px -15px 15px -15px; /* ボックスの端まで広げる */
+}
+
+/* プロフィールなどのテキスト */
+.content p {
+  margin: 0;
+  padding: 5px 0;
 }
 
 /* ==========================================
-   アニメーションの設定
+   スマホ・PC共通（当時はスマホがないので画面を中央に寄せるだけ）
    ========================================== */
-@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 0.8; }
-}
-
-/* ==========================================
-   画面サイズに応じた表示の切り替え (レスポンシブ)
-   ========================================== */
-
-/* 💻 パソコン・タブレット（大画面：横幅769px以上）の設定 */
-@media screen and (min-width: 769px) {
-  body {
-    background-attachment: fixed; /* パソコンでは背景全体をピタッと固定 */
-  }
-}
-
-/* 📱 スマホ（小画面：横幅768px以下）の設定 */
 @media screen and (max-width: 768px) {
   body {
-    background-attachment: scroll; /* スマホではスクロールと一緒に背景も動かす（バグ防止） */
-  }
-
-  .title {
-    font-size: 32px;
-  }
-
-  .subtitle {
-    font-size: 12px;
-  }
-
-  .content {
-    padding: 60px 20px;
-    margin-left: 15px;  
-    margin-right: 15px;
+    padding: 10px;
   }
 }
