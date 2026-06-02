@@ -1,0 +1,129 @@
+/* 全体 */
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:#0d1326;
+  color:white;
+}
+
+
+/* TOP */
+
+.hero{
+  height:100vh;
+
+  background-image:url("top.jpg");
+  background-size:cover;
+  background-position:center;
+
+  background-attachment:fixed;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  text-align:center;
+}
+
+
+/* 暗めフィルター */
+
+.overlay{
+  background:rgba(0,0,0,0.2);
+  padding:20px;
+  border-radius:20px;
+}
+
+
+/* タイトル */
+
+.title{
+  font-size:48px;
+  font-weight:300;
+  letter-spacing:4px;
+
+  animation:float 6s ease-in-out infinite;
+}
+
+
+/* サブタイトル */
+
+.subtitle{
+  margin-top:20px;
+  font-size:14px;
+  opacity:0.8;
+
+  animation:fade 3s ease;
+}
+
+
+/* セクション */
+
+.content{
+  padding:100px 24px;
+  max-width:700px;
+  margin:auto;
+}
+
+
+/* 見出し */
+
+h2{
+  font-size:28px;
+  font-weight:300;
+  margin-bottom:40px;
+
+  letter-spacing:2px;
+}
+
+
+/* アニメーション */
+
+@keyframes float{
+
+  0%{
+    transform:translateY(0px);
+  }
+
+  50%{
+    transform:translateY(-10px);
+  }
+
+  100%{
+    transform:translateY(0px);
+  }
+
+}
+
+
+@keyframes fade{
+
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:0.8;
+  }
+
+}
+
+
+/* スマホ */
+
+@media screen and (max-width:768px){
+
+  .title{
+    font-size:32px;
+  }
+
+  .subtitle{
+    font-size:12px;
+  }
+
+  .content{
+    padding:80px 20px;
+  }
+
+}
