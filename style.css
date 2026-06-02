@@ -1,85 +1,137 @@
 /* ==========================================
-   全体の設定（平成ガラケー風）
+   全体の設定（ラブリーY2Kデスクトップ）
    ========================================== */
 body {
   margin: 0;
-  padding: 20px 10px;
-  /* 💡 当時を再現するカクカクの12pxゴシック体 */
-  font-family: "MS PGothic", "Osaka", sans-serif;
+  padding: 20px;
+  /* Windowsクラシックの標準フォント指定 */
+  font-family: "MS Sans Serif", "MS PGothic", "Osaka", sans-serif;
   font-size: 12px;
-  background-color: #000000; /* 前略プロフ王道の黒背景 */
-  color: #ffffff; /* 基本の文字は白 */
-  line-height: 1.5;
+  /* 💡 背景色をラブリーなパステルピンクに */
+  background-color: #ffb6c1; 
+  color: #4a0e17; /* 全体の文字色は濃いめのベリーピンク */
+  line-height: 1.4;
 }
 
-/* 💡 リンクの設定（マウスを乗せるとチカチカ変わる） */
+/* 💡 リンク（レトロな青ではなく、世界観に合わせたパープル系に） */
 a {
-  color: #00ffff; /* 水色（ネオンカラー） */
-  text-decoration: none; /* 下線は消す */
-}
-a:hover {
-  color: #ff00ff; /* マウスを乗せるとピンクに */
-  background-color: #333333; /* 背景がグレーになってガラケーの選択風に */
+  color: #ba55d3;
   text-decoration: underline;
+}
+a:visited {
+  color: #ff1493;
 }
 
 /* ==========================================
-   TOP (Hero セクション)
+   TOP (Hero セクション：ようこそ画面風)
    ========================================== */
 .hero {
   text-align: center;
-  padding: 40px 10px;
-  border-bottom: 1px dashed #ff00ff; /* ピンクの点線で区切る */
-  margin-bottom: 20px;
+  padding: 20px;
+  color: #ffffff;
+  text-shadow: 2px 2px #ff69b4; /* 文字の後ろに濃いピンクの影 */
+  margin-bottom: 30px;
 }
 
-/* 💡 タイトルを平成の特殊文字風に */
 .title {
-  font-size: 18px; /* 当時はそんなにデカくない */
+  font-size: 26px;
   font-weight: bold;
-  color: #ff00ff; /* 蛍光ピンク */
-  letter-spacing: 1px;
+  margin: 0 0 10px 0;
+  letter-spacing: 2px;
 }
 
-/* サブタイトル */
 .subtitle {
-  margin-top: 10px;
-  font-size: 11px;
-  color: #00ffff; /* 蛍光水色 */
+  font-size: 12px;
+  margin: 0;
+  color: #fff0f5;
 }
 
 /* ==========================================
-   コンテンツセクション (PROFILE, FANCAMなど)
+   ウィンドウ（おもちゃのパソコン風）
    ========================================== */
 .content {
-  max-width: 500px;
-  margin: 0 auto 30px auto;
-  padding: 15px;
-  background-color: #111111; /* うっすら明るい黒のボックス */
-  border: 1px solid #333333; /* 枠線 */
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  /* 💡 ウィンドウのベースをミルキーピンクに */
+  background-color: #ffe4e1; 
+  
+  /* 立体的に見える外枠の影（色はかわいく調整） */
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #ffa07a;
+  border-bottom: 2px solid #ffa07a;
+  box-shadow: 1px 1px 0px 0px #ff69b4;
+  padding: 4px; 
+  box-sizing: border-box;
 }
 
-/* 見出し（前略の質問項目風） */
+/* 💡 ウィンドウの「タイトルバー」をパステルイエローに */
 h2 {
   font-size: 12px;
   font-weight: bold;
-  background-color: #ff00ff; /* ピンクの背景に白文字の見出し */
-  color: #ffffff;
-  padding: 5px 10px;
-  margin: -15px -15px 15px -15px; /* ボックスの端まで広げる */
+  background-color: #fffacd; /* パステルイエロー */
+  color: #ff1493; /* 文字はビビッドなピンク */
+  padding: 5px 8px;
+  margin: 0 0 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ffb6c1;
 }
 
-/* プロフィールなどのテキスト */
-.content p {
-  margin: 0;
-  padding: 5px 0;
+/* タイトルバーの右側につける「［×］ボタン」 */
+h2::after {
+  content: "×";
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  line-height: 12px;
+  text-align: center;
+  background-color: #ffe4e1;
+  color: #ff1493;
+  border-top: 1px solid #ffffff;
+  border-left: 1px solid #ffffff;
+  border-right: 1px solid #ffa07a;
+  border-bottom: 1px solid #ffa07a;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+/* ウィンドウの中身（淡いクリームイエローのテキスト領域） */
+.content-body {
+  background-color: #fffff0; /* 💡 ほんのり黄色みがかった白 */
+  border-top: 2px solid #ffa07a;
+  border-left: 2px solid #ffa07a;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  padding: 15px;
+  min-height: 50px;
+  color: #333333; /* 本文は読みやすさ重視 */
 }
 
 /* ==========================================
-   スマホ・PC共通（当時はスマホがないので画面を中央に寄せるだけ）
+   チッケム（YouTube）用の微調整
    ========================================== */
-@media screen and (max-width: 768px) {
-  body {
-    padding: 10px;
-  }
+.fancam-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.video-box {
+  background-color: #ffe4e1;
+  padding: 8px;
+  border: 1px solid #ffa07a;
+}
+
+.video-box p {
+  margin: 0 0 6px 0;
+  font-weight: bold;
+  color: #ff1493;
+}
+
+.video-box iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 2px solid #ff69b4; /* 動画の枠もピンク */
 }
