@@ -1,33 +1,32 @@
 /* ==========================================
-   全体の設定
+   全体の設定（背景画像をページ全体に適用）
    ========================================== */
 body {
   margin: 0;
   /* 日本語は洗練された明朝体、英数字は上品なセリフ体に */
   font-family: "Times New Roman", "YuMincho", "Hiragino Mincho ProN", "MS Mincho", serif;
-  background: #0d1326;
   color: white;
   line-height: 1.8; /* 行間を少し広げて読みやすく */
+
+  /* 💡 背景画像をbody（全体）に設定します */
+  background-image: url("top.jpeg");
+  background-size: cover;
+  background-position: center top; /* 画像の上部を基準に合わせる */
 }
 
 /* ==========================================
    TOP (Hero セクション)
    ========================================== */
 .hero {
-  height: 100dvh; /* vh から dvh に変更（スマホの上下バー対策） */
-
-  background-image: url("top.jpeg");
-  background-size: cover;
-  background-position: center;
-
+  height: 100dvh; /* スマホの上下バー対策 */
   display: flex;
   justify-content: center;
   align-items: center;
-
   text-align: center;
+  /* 💡 ここにあった背景画像の設定は削除しました */
 }
 
-/* 暗めフィルター */
+/* 暗めフィルター（文字を見やすくする） */
 .overlay {
   background: rgba(0, 0, 0, 0.4); /* 40%に少し暗くして文字を読みやすく */
   padding: 30px 40px;
@@ -55,12 +54,20 @@ body {
 }
 
 /* ==========================================
-   コンテンツセクション
+   コンテンツセクション (PROFILE, FANCAMなど)
    ========================================== */
 .content {
   padding: 100px 24px;
   max-width: 700px;
   margin: auto;
+
+  /* 💡 背景の夜空に対して文字が沈まないよう、
+        各テキストセクションにも薄い半透明の黒背景を敷くとグッと見やすくなります */
+  background: rgba(13, 19, 38, 0.6); /* 元の背景色 #0d1326 を60%の薄さで */
+  margin-top: 40px;   /* セクション同士の間に少し隙間を作る */
+  margin-bottom: 40px;
+  border-radius: 16px; /* 角を少し丸く */
+  box-sizing: border-box;
 }
 
 /* 見出し */
@@ -69,30 +76,22 @@ h2 {
   font-weight: 300;
   margin-bottom: 40px;
   letter-spacing: 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* 見出しの下に薄い線を引く */
+  padding-bottom: 10px;
 }
 
 /* ==========================================
    アニメーションの設定
    ========================================== */
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 @keyframes fade {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 0.8;
-  }
+  from { opacity: 0; }
+  to { opacity: 0.8; }
 }
 
 /* ==========================================
@@ -101,15 +100,15 @@ h2 {
 
 /* 💻 パソコン・タブレット（大画面：横幅769px以上）の設定 */
 @media screen and (min-width: 769px) {
-  .hero {
-    background-attachment: fixed; /* パソコンでは背景を固定（パララックス） */
+  body {
+    background-attachment: fixed; /* パソコンでは背景全体をピタッと固定 */
   }
 }
 
 /* 📱 スマホ（小画面：横幅768px以下）の設定 */
 @media screen and (max-width: 768px) {
-  .hero {
-    background-attachment: scroll; /* スマホでは背景の固定を解除してバグを防ぐ */
+  body {
+    background-attachment: scroll; /* スマホではスクロールと一緒に背景も動かす（バグ防止） */
   }
 
   .title {
@@ -121,6 +120,8 @@ h2 {
   }
 
   .content {
-    padding: 80px 20px;
+    padding: 60px 20px;
+    margin-left: 15px;  /* スマホの画面端にピタッとくっつかないよう余白を調整 */
+    margin-right: 15px;
   }
 }
